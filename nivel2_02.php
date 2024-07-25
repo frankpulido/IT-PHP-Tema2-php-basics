@@ -3,6 +3,8 @@
 /*
 Frank Pulido - Tema 2 - Nivel 2 - Ejercicio 2
 Preparar VS Code para trabajar con PHP :
+https://www.youtube.com/watch?v=WYsgnOal_u0
+Material del curso :
 https://www.w3schools.com/php/default.asp
 
 ENUNCIADO:
@@ -36,10 +38,10 @@ do {
     do {
         $opcion1 = -1; // Debo inicializar : Después del cierre de este DO-WHILE invito al cliente a regresar ($opcion2)
         echo "NUESTRO MENÚ DE GOLOSINAS :". "\n";
-        echo "1- Tableta de chocolate (1 € IVA incluido)". "\n";
+        echo "1- Tableta de Chocolate (1 € IVA incluido)". "\n";
         echo "2- Caja de Chicles (0,50 € IVA incluido)". "\n";
-        echo "3- Paquete de caramelos (1,50 € IVA incluido)". "\n";
-        echo "0- Terminar compra" . "\n" . "\n";
+        echo "3- Paquete de Caramelos (1,50 € IVA incluido)". "\n";
+        echo "0- Ir al carrito de la compra" . "\n" . "\n";
         
         $cantidad = 0; // Inicializo en cada bucle
 
@@ -59,17 +61,23 @@ do {
         PHP_EOL;
         
         switch ($opcion1){        
+            case 0 :
+                echo "Le dirigimos al carrito de compra. Gracias por comprar en IT Grocery.";
+                break;
             case 1 :
                 $cantidad1 = $cantidad1 + $cantidad;
+                echo "Se han agregado " . $cantidad . " unidades de \"Tableta de Chocolate\" a su carrito de la compra";
                 break;
             case 2 :
                 $cantidad2 = $cantidad2 + $cantidad;
+                echo "Se han agregado " . $cantidad . " unidades de \"Caja de Chicles\" a su carrito de la compra";
                 break;
             case 3 :
                 $cantidad3 = $cantidad3 + $cantidad;
+                echo "Se han agregado " . $cantidad . " unidades de \"Paquete de Caramelos\" a su carrito de la compra";
                 break;
             default :
-                echo "Gracias por comprar en IT Grocery";
+                echo "Debe seleccionar una opción válida.";
                 break;
         }
     } while ($opcion1 != 0);
@@ -91,6 +99,10 @@ do {
 
 PHP_EOL;
 $subtotal = $cantidad1 * $precio1 + $cantidad2 * $precio2 + $cantidad3 * $precio3;
-if ($subtotal > 0) {echo "Total a pagar : " . $subtotal . " €." . "\n";}
+if ($subtotal > 0) {
+    echo "Total a pagar : " . $subtotal . " €." . "\n";
+    echo "Gracias por comprar en IT Grocery";
+}
+else {echo "Gracias por comprar en IT Grocery";}
 
 ?>
