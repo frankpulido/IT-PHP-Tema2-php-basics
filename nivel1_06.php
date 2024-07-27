@@ -1,5 +1,4 @@
 <?php
-
 /*
 Frank Pulido - Tema 2 - Nivel 1 - Ejercicio 5
 Preparar VS Code para trabajar con PHP :

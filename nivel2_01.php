@@ -1,5 +1,4 @@
 <?php
-
 /*
 Frank Pulido - Tema 2 - Nivel 2 - Ejercicio 1
 Preparar VS Code para trabajar con PHP :
@@ -13,12 +12,17 @@ ENUNCIADO:
 - Cada minuto adicional a partir de los 3 primeros es un paso de contador y cuesta 5 céntimos..
 */
 
-echo "El servicio de ITcalling se tarifica a 10 céntimos por los primeros 3 minutos y 5 céntimos por minuto cada minuto adicional o fracción" . "\n";
+echo "El servicio de ITcalling se tarifica a 10 céntimos por los primeros 3 minutos (tarifa mínima) y 5 céntimos/minuto por cada minuto adicional o fracción" . "\n";
 
 $cost = 0;
 
-$time = (float)readline("Por favor, indique la duración de la llamada :");
-PHP_EOL;
+do {
+    $time = (float)readline("Por favor, indique la duración de la llamada : ");
+    echo "\n";
+    if ($time <= 0) {echo "Debe indicar un tiempo superior a 0 minutos.";}
+    echo "\n";
+} while ($time <= 0);
+
 
 function cost ($call_time) {
     if ($call_time <= 3) {

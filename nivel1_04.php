@@ -7,10 +7,13 @@ Material del curso :
 https://www.w3schools.com/php/default.asp
 
 ENUNCIADO :
-Haz un programa que implemente una función en la que se cuente hasta un número determinado. Si no se incluye un número determinado, el número deberá tener un valor por defecto igual a 10. Además, esta función debe tener un segundo parámetro que indique de cuánto a cuánto se cuenta(De 1 en 1, de 2 en 2…). La cuenta debe mostrarse por pantalla paso a paso.
+Haz un programa que implemente una función en la que se cuente hasta un número determinado. Si no se incluye un número determinado,
+el número deberá tener un valor por defecto igual a 10.
+Además, esta función debe tener un segundo parámetro que indique de cuánto a cuánto se cuenta(De 1 en 1, de 2 en 2…).
+La cuenta debe mostrarse por pantalla paso a paso.
 */
 
-function contar1 ($x) {
+function contar1 ($x = 10) { // Esta es la forma de dar el valor por "default", pero introduciremos por Terminal
     echo "Contaremos hasta $x de 1 en 1 :" . PHP_EOL;
     $i = 1;
     while ($i <= $x) {
@@ -18,18 +21,22 @@ function contar1 ($x) {
         $i++;
     }
 }
-function contar2 ($x) {
-    if ($x % 2 == 0) {
-        echo "El número $x es PAR, contaremos de 2 en 2 hasta  llegar a $x." . PHP_EOL;
+function contar2 ($x = 10) { // Esta es la forma de dar el valor por "default", pero introduciremos por Terminal
+    if ($x ==1) {
+        echo "(ya sabes que no podemos contar de 2 en 2 hasta el 1)";
     } else {
-        echo "El número $x es IMPAR, contaremos de 2 en 2 hasta el número anterior a $x." . PHP_EOL;
-        if ($x ==1) {echo "(ya sabes que no podemos contar de 2 en 2 hasta el 1)";};
+        if ($x % 2 == 0) {
+            echo "El número $x es PAR, contaremos de 2 en 2 hasta llegar al $x." . PHP_EOL;
+        } else {
+            echo "El número $x es IMPAR, contaremos de 2 en 2 hasta el número anterior al $x." . PHP_EOL;
+        }
+        $i = 0;
+        while ($i <= $x) {
+            echo $i . "\n";
+            $i = $i + 2;
+        } 
     }
-    $i = 0;
-    while ($i <= $x) {
-        echo $i . "\n";
-        $i = $i + 2;
-    } 
+    
 }
 
 echo "Vamos a aprender a contar hasta un número. Indica hasta que número quieres que contemos :" . "\n";

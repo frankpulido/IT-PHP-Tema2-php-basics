@@ -1,5 +1,4 @@
 <?php
-
 /*
 Frank Pulido - Tema 2 - Nivel 1 - Ejercicio 5
 Preparar VS Code para trabajar con PHP :
@@ -26,10 +25,10 @@ function grado ($x) {
 
 $nota = -1;
 do {
-    echo "Si quiere verificar el grado que corresponde a su NOTA indíquela a continuación (número entre 0 y 1)";
+    echo "Si quiere verificar el grado que corresponde a su NOTA indíquela a continuación (número entre 0 y 1) : ";
     $nota = (float)readline();
-    grado($nota);
-    if($nota < 0 || $nota > 1) {echo "Ha indicado un valor fuera de rango. Reintroduzca el valor";}
+    if($nota < 0 || $nota > 1) {echo "Ha indicado un valor fuera de rango. Debe reintroducir el valor.\n";}
+    else {grado($nota);}
 } while ($nota < 0 || $nota > 1);
 
 ?>

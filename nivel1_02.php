@@ -6,11 +6,12 @@ Material del curso :
 https://www.w3schools.com/php/default.asp
 
 Enunciado :
-Imprimeix per pantalla "Hello, World!" utilitzant una variable. En acabat :
-Transforma tots els caràcters de l'string a majúscules i imprimeix en pantalla.
-Imprimeix per pantalla la mida (longitud) de la variable.
-Imprimeix per pantalla l'string en ordre invers de caràcters.
-Crea una nova variable amb el contingut “Aquest és el curs de PHP” i imprimeix per pantalla la concatenació de tots dos strings.
+Imprimir por pantalla "Hello, World!" utilizando una variable.
+Después:
+Transforma todos los caracteres del string a mayúsculas e imprime en pantalla.
+Imprime por pantalla el tamaño (longitud) de la variable.
+Imprime por pantalla el string en orden inverso de caracteres.
+Crea una nueva variable con el contenido "Este es el curso de PHP" e imprime por pantalla la concatenación de ambos strings.
 
 https://www.w3schools.com/php/php_string.asp
 https://www.w3schools.com/php/php_ref_string.asp
@@ -31,8 +32,8 @@ SLICE TO THE END : $x = "Hello World!"; // echo substr($x, 6, 3); OUTPUT : Wor
 SLICE FROM THE END : $x = "Hello World!"; // echo substr($x, -5, 3); OUTPUT : orl
 NEGATIVE LENGTH : $x = "Hi, how are you?"; // echo substr($x, 5, -3); OUTPUT : ow are y (ENTRE LA POSICIÓN 5 Y LA POSICIÓN -3)
 The str_shuffle() function randomly shuffles all characters in a string.
-
 */
+
 $greeting = "Hello World";
 echo $greeting . PHP_EOL; // La instrucción a partir del punto es un salto de línea
 $greeting = strtoupper($greeting);
