@@ -28,8 +28,8 @@ b) Crea una función Calculadora que entre dos números por parámetro, y en un 
 
 $x = 5;
 $y = 2;
-$n = 3.14;
-$m = 6.28;
+$n = 7.25;
+$m = 2.75;
 
 function suma($a,$b) {
     echo $a + $b;
@@ -44,7 +44,7 @@ function division($a,$b) {
     echo $a / $b;
 }
 function residuo($a,$b) {
-    echo ($a % $b); // he hecho un casting porque tenía problemas con la coma flotante y no funcionó... REVISAR
+    echo ($a % $b); // he hecho un casting porque tenía problemas con la coma flotante y no funcionó... REVISADO : usar fmod()
 }
 
 function todas($a,$b) {
@@ -53,18 +53,30 @@ function todas($a,$b) {
     echo "Su diferencia : "; echo resta($a,$b) . PHP_EOL;
     echo "Su producto : "; echo producto($a,$b) . PHP_EOL;
     echo "Su división : "; echo division($a,$b) . PHP_EOL;
-    // echo "Su residuo : "; echo residuo($a,$b) . PHP_EOL; La he sacado fuera por problemas con variables tipo FLOAT
+    if (is_float($a) || is_float($b)) {
+        echo "Su residuo : "; echo fmod($a,$b) . PHP_EOL;
+        /*
+        Pude haber usado fmod() en ambos casos (int y float) y ahorrarme el IF, pero quiero recordar que puedo usar "%" igual que en Java.
+        Además, así he usado también is_float()
+        */
+    } else {
+        echo "Su residuo : "; echo residuo($a,$b) . PHP_EOL;
+    }
+    /*
+    función is_float() : https://www.php.net/manual/en/function.is-float.php
+    función fmod() : https://www.w3schools.com/php/func_math_fmod.asp
+    */
 }
 
 echo "\n";
 echo "Bienvenidos a IT Aritmética.\n";
 todas($x,$y);
-echo "Su residuo : "; echo residuo($x,$y) . PHP_EOL;
+// echo "Su residuo : "; echo residuo($x,$y) . PHP_EOL; **** Incorporado en todas($a,$b)
 PHP_EOL;
 echo "\n";
 echo "Ahora usemos variables de coma flotante : " . "\n";
 todas($n,$m);
-
+// echo "Su residuo : "; fmod($x,$y) . PHP_EOL; **** Incorporado en todas($a,$b)
 PHP_EOL;
 echo "\n";
 
@@ -85,9 +97,9 @@ do {
     }
 
     if ($opcion != 0) {
-        echo "Escoge 2 operandos. Deben ser números enteros :\n";
-    $x = (int)readline('Indica el primer número entero : '); // El comando readline() permite introducir valores por terminal
-    $y = (int)readline('Indica el segundo número entero : ');
+        echo "Escoge 2 operandos. Puedes usar números enteros o de coma flotante :\n";
+    $x = (float)readline('Indica el primer operando : '); // El comando readline() permite introducir valores por terminal
+    $y = (float)readline('Indica el segundo operando : '); // Los lee como String, es necesario hacer un casting
     echo "\n";
     echo "Nos has indicado los siguientes operandos : " . $x . " y ". $y . ".\n";
     }
@@ -106,7 +118,7 @@ do {
             echo "Su división : "; echo division($x,$y) . PHP_EOL;
             break;
         case 5 :
-            echo "Su residuo : "; echo residuo($x,$y) . PHP_EOL;
+            echo "Su residuo : "; echo fmod($x,$y) . PHP_EOL; // En la calculadora usaré fmod()
             break;
         case 0 :
             echo "Hasta pronto!!.";
