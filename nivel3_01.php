@@ -18,8 +18,6 @@ ESTUDIAR :
 
 $rango;
 $numeros = [];
-$purga1 = [];
-$purga2 = [];
 $primos = [];
 
 echo "\n";
